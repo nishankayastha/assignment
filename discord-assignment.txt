@@ -1,0 +1,306 @@
+1. Write a program that illustrates the examples of data-types.
+
+    strings
+    const a = "5"
+    console.log(a); // "5" treated as a string
+
+
+    numbers
+    const a = 5;
+    console,log(a); // 5 is treated as number
+
+    Boolean
+    const a = 5;
+    const b = 5;
+    console.log(a == b); // true
+    console.log(a > b); // false
+
+    arrays
+    const names = ["ram", "shyam", "hari"];
+    console.log(names[1]); //shyam
+
+    objects
+    const aboutMe = {
+        name: "nishan",
+        caste: "kayastha" ,
+        age: 25
+    };
+
+    console.log("I" + "am" + aboutMe.name + " " + aboutMe.caste +"." + "I" + "am" + aboutMe.age + " years old.");  
+    console.log(`My name is ${aboutMe.name + " " + aboutMe.caste} . I am ${aboutMe.age} years old.`)
+
+
+    Type of:
+    const a = 5;
+    const b = "5";
+    let c;
+    const z = (a == b);
+    const square = [5,5,5,5];
+    const fullName = {
+        firstName : "nishan",
+        lastName : "kayastha" 
+    };
+
+    function firstName(name){
+        return (name ? "nishan" : "invalid")
+    }
+
+    console.log(typeof a); //number
+    console.log(typeof b); //string
+    console.log(typeof c); //undefined
+    console.log(typeof z); //boolean
+    console.log(typeof square); //array   : object vanera aairaxa
+    console.log(typeof fullName); //object
+    console.log(typeof firstName); //function
+
+
+    undefined
+    the value is not defined.
+
+
+
+
+
+
+
+
+
+
+
+
+2. Write a program with comments that illustrates the differences between var, let & const. Also mention scopes and hoisting.
+
+ -->  Var,let and const are the variables for storing data values.
+
+    VAR:
+
+            It is the oldest keyword used to declare variable before Es6. Var supports global and functional scope. 
+
+            var a = 7; //Here the value of a is global scope
+            function f(){
+                var a=10; //Here the value of a is functional scope.
+                console.log(a);     
+            }
+            f();
+            console.log(a);
+
+            The output of this program will be 10 and 7. The value assigned to a inside the function will be overridden by the functional 
+            scope value of a. So, the first value for the console log will be 10. Then, for the next console, the value inside the function 
+            will not be accesible outside the function and the console will take the global scope value of a.
+
+
+
+            var can be redeclared.
+            var a = 2;
+            var a = "ram"; //here the variale a is redeclared and  value is reassigned. The output will be "ram".
+
+
+            Var supports hoisting
+            console.log(a);
+            var a=5;  // Here var a is assigned 5 below the console, but still the browser takes var a as declared variable.
+                    // Althought only the declaration is hoisted but not the assigned value. In this case, the console is "undefined".
+
+
+             
+    LET:
+                --> It is the improved version of var. this keyword is first introduced in Es6. let variable supports block scope.
+
+                let a=1;
+                function n(){
+                    let o = 2; // value of o only works in this block
+                    console.log(o); // 2
+                    console.log(a); // 1
+                }
+                n();
+                console.log(o); // refernce error; a is not defined
+
+
+
+                --> let can not re-declare variables unlike var. but can update it.
+
+                let a = 1;
+                let a = 2; // can't redeclare : syntax error a is already declared
+
+                let b = 5;
+                b = 7; // It is allowed to update the values.
+
+
+
+                -->  We can declare the variables with same name in different blocks.
+
+                let a = 9;
+                if(true){
+                    let a = 7;
+                    console.log(a); // 7
+                }
+                if(true){
+                    let a = 5;
+                    console.log(a); // 5
+                }
+                console.log(a); //9
+
+
+                -->  If the variable is used before declaration, it will not show undefined like var instead will give an error.
+
+                console.log(p); // Reference error: a cant be accesed before initialization.
+                let p = 10;
+
+
+
+                --> let can be declared without initialization
+
+                let a;
+                console.log(a);  // undefined
+
+    CONST:
+    
+    
+            --> const have all the same features as let variable and the only difference is the value cannot be updated as well.
+
+
+                const a =10;
+                a = 7;
+                console.log(a); // Type error: assignment to constant variable
+
+
+                const a;
+                console.log(a); // syntax error: missing initialization in declartion
+
+
+
+
+
+                In summary:
+                
+
+                VAR:                                     Let:                                        COnst:
+                global,functional scope.                 global,functional & blockscope.             same as let
+                can be re-declared and updated.          cant be re-declared but can update.         cant be re-decalred and cant update
+                can be declared without initialization   can be declared without initialization      cant be declared without initialization.
+                can access without initialization        can't access without initialization         can't access without initialization
+                (value is undefined)                     (Syntax error)                              as it cant be declared without initialization
+
+
+
+
+
+
+3. Write a program that illustrates the use of all the available arithmetic operators & assignment operators.
+
+Arithmetic operators:
+
+Example showing arithmetic operators:>
+
+const a = 2;
+const b = 3;
+const c = 5;
+const z = a+b+c; //addition
+console.log(z); // 10 
+console.log(a*b/c); //1.2 //multiplaication and division
+console.log(a-b);  //-1 //subtraction
+console.log(a**b); //8 // exponential
+console.log((a+b)%c); //0 //modulus(reminder)
+
+let a = 5;
+let b = 7;
+
+console.log(a++); // increment   {can not use const because constant variable can not be updated}
+console.log(b--); //decrement
+
+
+Assignment operators:
+
+let a = 5; // a is assigned 5
+
+ a += 2;  // a = 5+2 = 7
+(same as doing a = a+5); //  
+
+a-=2; a = 5-2 = 3
+(same as doing a = a-2) ;//
+
+a*= 2 // a = a*2
+
+a /= 2 // a = a/2
+
+a %= 2 // a = a%2
+
+
+
+p.S : it also works on string and not only numbers.( the strings get concatinated)
+
+const firstName = "nishan"
+const lastName = "kayastha"
+const fullName = firstName + " " + lastName;
+console.log(fullName); // result will be "Nishan Kayastha"
+
+const a = 5 *5 ; //25
+const b = "5" + 5; // "55" 
+const z = "ram" + a; // "ram25"
+
+
+Comparsion operators:
+
+ == equals to:
+                let a =5;
+                console.log(a == 5); //true
+                console.log( a == 7); //false
+
+ === equals value and equal data type:
+
+                let a = "5";
+                console.log(a === 5); //false cause here "5" variable is a string
+                console.log(a === "5"); //true
+
+!= not equals to:
+
+                let a =5;
+                console.log(a != 5); //false
+                console.log(a != 7); //true
+
+!== not equal value and not equal data type:
+
+                let a = "5";
+                console.log(a !== "5"); //false 
+                //everything else will be true
+
+similar situations for 
+
+> greater than
+< less than
+>= greater than or equals to
+<= less than or equals to
+
+logical opearators:
+
+&& and:
+
+                let a = 5;
+                let b = 10;
+                console.log(a > 2 && b <= 10); //true check both conditions.
+
+|| or:
+
+                let a = 5;
+                let b = 10;
+                console.log(a > 6 || b >= 10); //true as second condition is true
+
+! not:
+
+                console.log(!(a == b)); //true as a is not equals to be
+
+
+? ternary operator:
+
+takes 3 operands. 
+        a condition followed by question mark (?)
+        and expression if condition is true folowed by a colon(:)        
+        finally expression if condition is false.
+
+        syntax: 
+        condition? expifTrue: expifFalse
+
+                function firstName(name){
+                    return (name ? "nishan" : "invalid")
+                }
+                console.log(firstName(true)); // "nishan"
+                console.log(firstName(false)); // "invalid"
